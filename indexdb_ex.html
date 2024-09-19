@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form with IndexedDB CRUD</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        #outputTable {
+            table-layout: auto;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #outputTable th,
+        #outputTable td {
+            text-align: left;
+            padding: 8px;
+            width: auto;
+            height: auto;
+        }
+
+        #outputTable th {
+            background-color: #f2f2f2;
+        }
+
+        #outputTable td {
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <h1>Student Form with IndexedDB CRUD</h1>
+    <form id="studentForm">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" name="studentName" aria-required="true" required />
+        <span id="nameError" class="error"></span><br />
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" aria-required="true" required />
+        <span id="dobError" class="error"></span><br />
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male" aria-required="true" /> Male
+        <input type="radio" id="female" name="gender" value="Female" aria-required="true" /> Female
+        <span id="genderError" class="error"></span><br />
+
+        <label for="course">Course:</label>
+        <select id="course" name="course" aria-required="true">
+            <option value="">Select Course</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+        </select>
+        <span id="courseError" class="error"></span><br />
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="3" aria-required="true" required></textarea>
+        <span id="addressError" class="error"></span><br />
+
+        <label>
+            <input type="checkbox" id="terms" name="terms" aria-required="true" /> I accept the terms and conditions
+        </label><br />
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Student List</h2>
+    <table id="outputTable" style="display: none;" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Course</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <!-- Link external JavaScript file -->
+    <script src="indexdb_ex.js" defer></script>
+</body>
+
+</html>

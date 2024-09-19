@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise chaining</title>
+    <script defer>
+        let p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(10);
+            }, 3000)
+        });
+
+        p.then(res => {
+            console.log(res); //10
+            return res * 2;
+        }).then(res => {
+            console.log(res);//20
+            return res * 3;
+        }).then(res => {
+            console.log(res);//60
+            return res * 4;
+        }).then(res => console.log(res)); //240
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

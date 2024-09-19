@@ -1,0 +1,656 @@
+var students=[
+    {
+        name:"tej",
+        age:21,
+        marks:[40,50,30],
+    },
+    {
+        name:"tej",
+        age:21,
+        marks:[40,50,30],
+    },
+    {
+        name:"tej",
+        age:21,
+        marks:[40,50,30]
+    },
+]
+var i=0;
+while(i<students.length){
+    console.log(students[i]);
+    var total=0;
+    var j=0;
+    while(j<(students[i].marks).length){
+        total+=students[i].marks[j];
+        j++
+    }
+    students[i].total=total;
+    i++;
+}
+console.log(students);
+
+
+output:
+{ name: 'tej', age: 21, marks: [ 40, 50, 30 ] }
+{ name: 'tej', age: 21, marks: [ 40, 50, 30 ] }
+{ name: 'tej', age: 21, marks: [ 40, 50, 30 ] }
+[
+  { name: 'tej', age: 21, marks: [ 40, 50, 30 ], total: 120 },
+  { name: 'tej', age: 21, marks: [ 40, 50, 30 ], total: 120 },
+  { name: 'tej', age: 21, marks: [ 40, 50, 30 ], total: 120 }
+]
+
+-------------------------------------------
+var a = [];
+var b = [];
+var num1 = 0;
+var num2 = 0;
+
+do {
+    num2 = 0;
+    do {
+        if (num1 + num2 === 7) {
+            a.push(num1);
+            b.push(num2);
+        }
+        num2++;
+    } while (num2 <= 7);
+    num1++;
+} while (num1 <= 7);
+
+console.log('a:', a);
+console.log('b:', b);
+
+output:
+a: (8) [0, 1, 2, 3, 4, 5, 6, 7]
+b: (8) [7, 6, 5, 4, 3, 2, 1, 0]
+--------------------------------------------------------------
+arthmetic operators:
+-----------------
+var a=20;
+var b=6;
+console.log(a+b);
+console.log(a-b);
+console.log(a*b);
+console.log(a/b);
+console.log(b/a);
+console.log(a%b);
+
+output:
+26
+14
+120
+3.3333333333333335
+0.3
+2
+----------------------------
+var a=10;
+var b=20;
+console.log(a+b,typeof(a+b));
+console.log(a-b,typeof(a-b));
+console.log(b-a,typeof(b-a));
+
+console.log(a*b,typeof(a*b));
+console.log(a/b,typeof(a/b));
+console.log(a%b,typeof(a%b));
+
+output:
+30 number
+-10 number
+10 number
+200 number
+0.5 number
+10 number
+----------------------------
+var a="Ten";
+var b=20;
+console.log(a+b,typeof(a+b));
+console.log(a-b,typeof(a-b));
+console.log(b-a,typeof(b-a));
+
+console.log(a*b,typeof(a*b));
+console.log(a/b,typeof(a/b));
+console.log(a%b,typeof(a%b));
+
+
+output:
+Ten20 string
+NaN number
+NaN number
+NaN number
+NaN number
+NaN number
+-------------------------
+var a=true;
+var b=20;
+console.log(a+b,typeof(a+b));
+console.log(a-b,typeof(a-b));
+console.log(b-a,typeof(b-a));
+
+console.log(a*b,typeof(a*b));
+console.log(a/b,typeof(a/b));
+console.log(a%b,typeof(a%b));
+
+output:
+21 number
+-19 number
+19 number
+20 number
+0.05 number
+1 number
+-----------------------------------
+var a=true;
+var b=false;
+console.log(a+b,typeof(a+b));
+console.log(a-b,typeof(a-b));
+console.log(b-a,typeof(b-a));
+
+console.log(a*b,typeof(a*b));
+console.log(a/b,typeof(a/b));
+console.log(b/a,typeof(b/a));
+console.log(a%b,typeof(a%b));
+
+output:
+1 number
+1 number
+-1 number
+0 number
+Infinity number
+0 number
+NaN number
+-----------------------------------------
+Assignement operators
+-------------------------
+var a=20;
+var b=10;
+a+=b;
+console.log(a,b);
+a-=b;
+console.log(a,b);
+a*=b;
+console.log(a,b);
+a/=b;
+console.log(a,b);
+a%=b;
+console.log(a,b);
+
+
+output:
+30 10
+20 10
+200 10
+20 10
+0 10
+------------------
+var a=20;
+var b=10;
+a+=b-=a*=b;
+console.log(a,b);
+
+output:
+-170 -190
+
+
+--------------------------
+sum of 3 pairs should be equal to an number
+using for loop
+
+var x=5;
+for(var i=0;i<x;i++){
+    for(var j=0;j<x;j++){
+        for(var k=0;k<x;k++){
+            if(i+j+k===5){
+                console.log(i,j,k)
+            }
+        }
+    }
+}
+
+output:
+0 1 4
+0 2 3
+0 3 2
+0 4 1
+1 0 4
+1 1 3
+1 2 2
+1 3 1
+1 4 0
+2 0 3
+2 1 2
+2 2 1
+2 3 0
+3 0 2
+3 1 1
+3 2 0
+4 0 1
+4 1 0
+
+---------------------------
+
+var mon=5;
+var year=2024;
+var noofdays=0;
+if(mon===1 ||mon===3 || mon===5 || mon===7||  mon===8 || mon===10|| mon===12){
+    noofdays=31;
+}
+else if(mon===2){
+    if(year%4==0 && !(year%100==0) || year%400==0){
+        noofdays=29;
+    }else{
+        noofdays=28;
+    }
+}
+else if(mon===4 ||mon===6 || mon===9 || mon===11){
+    noofdays=30;
+}else{
+    console.log("month out of range");
+}
+console.log(`Month ${mon} has ${noofdays} days in the year ${year}`);
+
+
+output
+--------
+Month 5 has 31 days in the year 2024
+--------------------------------------------------------------------------
+
+//using switch and entering elements dynamically
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <script src="test1.js"></script>
+</head>
+
+<body>
+    Enter day:
+    <input type="text" name="day" id="day">
+    <button onclick="getDayName()">Get Day Name</button>
+
+</body>
+
+</html>
+
+
+// 1-mon...7-sun 
+
+'use strict';
+function getDayName(){
+    var day=parseInt(document.getElementById("day").value);
+    //console.log(typeof day);
+    var dayName;
+    switch (day) {
+        case 1:
+            dayName = "mon";
+            break;
+        case 2:
+            dayName = "tue";
+            break;
+        case 3:
+            dayName = "wed";
+            break;
+        case 4:
+            dayName = "thu";
+            break;
+        case 5:
+            dayName = "fri";
+            break;
+        case 6:
+            dayName = "sat";
+            break;
+        case 7:
+            dayName = "sun";
+            break;
+        default:
+            dayName="out of range";
+    }
+    console.log(dayName);
+    document.getElementById("day").value="";
+}
+-----------------------------------------------------------------------
+dom level 0 events
+---------------------
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <script src="test1.js" defer></script>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="userName" id="" placeholder="enter username"/>
+        <input type="number" name="userAge" id="" placeholder="enter userAge"/>
+        <button id="btn">click me</button>
+    </div>
+
+</body>
+
+</html>
+
+
+var user = {};
+var users = [];
+
+var btn = document.getElementById("btn");
+var inps = document.getElementsByTagName("input");
+inps[0].focus();
+
+
+for (var i = 0; i < inps.length; i++) {
+    inps[i].onchange = getUserName;
+}
+
+function getUserName(e) {
+    //console.log(e.target.name,e.target.value);
+    user[`${e.target.name}`] = e.target.value;
+    //console.log(user);
+}
+btn.onclick = getUserData;
+
+function getUserData() {
+    users.push(user);
+    user={}; //clears the previous data
+    for(var i=0;i<inps.length;i++){
+        inps[i].value="";
+    
+    }
+    inps[0].focus();    
+    console.log(users);
+}
+
+
+---------------------------------------------------------------------
+form validation
+--------------------
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript Form Demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="./test1.css" />
+</head>
+
+<body>
+    <div class="container">
+        <form action="signup.html" method="post" id="signup">
+            <h1>Sign Up</h1>
+            <div class="field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your fullname" />
+                <small></small>
+            </div>
+            <div class="field">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Enter your email address" />
+                <small></small>
+            </div>
+            <div class="field">
+                <button type="submit" class="full">Subscribe</button>
+            </div>
+        </form>
+    </div>
+    <script src="./test1.js"></script>
+</body>
+
+</html>
+
+// show a message with a type of the input 
+function showMessage(input, message, type) {
+    // get the small element and set the message 
+    const msg = input.parentNode.querySelector("small");
+    msg.innerText = message;
+    // update the class for the input 
+    input.className = type ? "success" : "error";
+    return type;
+}
+function showError(input, message) {
+    return showMessage(input, message, false);
+}
+function showSuccess(input) {
+    return showMessage(input, "", true);
+}
+function hasValue(input, message) {
+    if (input.value.trim() === "") {
+        return showError(input, message);
+    }
+    return showSuccess(input);
+}
+function validateEmail(input, requiredMsg, invalidMsg) {
+    // check if the value is not empty 
+    if (!hasValue(input, requiredMsg)) {
+        return false;
+    }
+    // validate email format 
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
+
+    const email = input.value.trim();
+    if (!emailRegex.test(email)) {
+        return showError(input, invalidMsg);
+    }
+    return true;
+}
+const form = document.querySelector("#signup");
+const NAME_REQUIRED = "Please enter your name";
+const EMAIL_REQUIRED = "Please enter your email";
+const EMAIL_INVALID = "Please enter a correct email address format"; 
+
+
+form.addEventListener("submit", function (event) {
+    // stop form submission 
+    event.preventDefault();
+    // validate the form 
+    let
+        nameValid
+            =
+            hasValue(form.elements["name"],
+                NAME_REQUIRED);
+    let emailValid = validateEmail(form.elements["email"],
+        EMAIL_REQUIRED, EMAIL_INVALID);
+    // if valid, submit the form. 
+    if (nameValid && emailValid) {
+        alert("Demo only. No form was posted.");
+    }
+});
+-------------------------------------------------------------------------------------------
+
+dom level 2 event handlers
+-------------------------------
+<button id="btn">click me</button>
+
+var btn=document.getElementById("btn");
+var show=function show(){
+    console.log("clicked me");
+    // btn.removeEventListener("click",show);
+    btn.setAttribute("disabled",true);
+}
+btn.addEventListener("click",show)
+
+---------------------------------------------------------------
+dom level 2 forms
+-----------------------
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript Form Demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="./test1.css" />
+    <script src="./test1.js" defer></script>
+</head>
+
+<body>
+    <!-- <form onsubmit="getData(event)"> -->
+        <!-- html event handlers -->
+    <form>
+        <!-- dom level 0 -->
+        <input type="text" name="userName" placeholder="Enter username" />
+        <input type="age" name="userAge" placeholder="Enter usernAge" />
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
+
+var form=document.forms[0];
+var user={};
+var users=[];
+form.children[0].focus();
+
+function getData(e){
+    e.preventDefault();
+    // console.log(e);
+    //console.log(form.children[0].name,form.children[0].value);
+
+    for(var i=0;i<form.childElementCount-1;i++){
+        user[`${form.children[i].name}`]=form.children[i].value;
+    }
+    // console.log(user);
+    users.push(user);
+
+    user={};
+    for(var i=0;i<form.childElementCount-1;i++){
+        form.children[i].value="";
+    }
+    console.log(users);
+    form.children[0].focus();
+}
+
+//dom level2
+form.addEventListener("submit",getData);
+
+
+
+//dom level 0
+// form.onsubmit=getData;
+
+----------------------------------------------------------------------------
+
+event flow 
+bubbling and capturing
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Handler Events</title>
+    <style>
+        body {
+            margin: 20px;
+            border: 5px solid blue;
+        }
+        div {
+            margin: 20px;
+            border: 5px solid green;
+        }
+        p {
+            margin: 20px;
+            border: 5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Sample text</p>
+    </div>
+
+    <script>
+        document.body.addEventListener('click', function() {
+            console.log('body');
+        }, true); 
+
+        document.querySelector('div').addEventListener('click', function() {
+            console.log('div');
+        }, true); 
+
+        document.querySelector('p').addEventListener('click', function() {
+            console.log('p');
+        }, true); 
+    </script>
+</body>
+</html>
+--------------------------------------------------------
+timer ..like stop watch
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracker -3</title>
+    <style>
+        div{
+            margin-top:10px;
+        }
+    </style>
+    <script defer>
+        var intervalId;
+        var startTime;
+        var endTime;
+
+        function simple() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            document.getElementById("tim").innerHTML = `Timer: ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        }
+
+        function startTimer() {
+            startTime = new Date();  // Capture the start time
+            intervalId = setInterval(simple, 1000);  // Start the timer
+            var startHours = startTime.getHours();
+            var startMinutes = startTime.getMinutes();
+            var startSeconds = startTime.getSeconds();
+            document.getElementById("start").innerHTML = `Start Time: ${startHours} hours, ${startMinutes} minutes, ${startSeconds} seconds`;
+        }
+
+        function stopTimer() {
+            clearInterval(intervalId);  // Stop the timer
+            endTime = new Date();  // Capture the end time
+
+            var endHours = endTime.getHours();
+            var endMinutes = endTime.getMinutes();
+            var endSeconds = endTime.getSeconds();
+            document.getElementById("tim").innerHTML = `End Time: ${endHours} hours, ${endMinutes} minutes, ${endSeconds} seconds`;
+            calculateDifference();  // Calculate the difference
+        }
+
+        function calculateDifference() {
+            var timeDiff = endTime - startTime;  // Time difference in milliseconds
+            var seconds = Math.floor((timeDiff / 1000) % 60);
+            var minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+            var hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+
+            // Update diff element with the time difference
+            document.getElementById("diff").innerHTML = `Time Difference: ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        }
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>Timer -21 -3</h1>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="stopTimer()">Stop</button>
+        <div id="start"></div>
+        <div id="tim"></div>
+        <div id="diff"></div>
+    </center>
+</body>
+
+</html>
+
+

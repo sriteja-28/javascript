@@ -1,0 +1,522 @@
+document.body.setAttribute("class", "container");
+
+var header = document.createElement("header");
+header.setAttribute("class", "row");
+
+var hdiv = document.createElement("div");
+hdiv.setAttribute("class", "col");
+
+hdiv.innerHTML = "<h1>Sample Project</h1>";
+header.appendChild(hdiv);
+
+document.body.appendChild(header);
+
+if (hdiv.hasAttribute("class")) {
+    var cls = hdiv.getAttribute("class");
+    hdiv.setAttribute("class", `${cls} head`);
+}
+
+
+//table
+
+var students = [
+    {
+        name: "abc",
+        age: 21,
+        marks: [70, 90, 40]
+    },
+    {
+        name: "def",
+        age: 20,
+        marks: [40, 50, 60]
+    },
+    {
+        name: "ghi",
+        age: 22,
+        marks: [80, 50, 70]
+    }
+];
+var section = document.createElement("section");
+section.setAttribute("class", "row secsty");
+var secdiv = document.createElement("div");
+
+section.appendChild(secdiv);
+
+
+var table = document.createElement("table");
+table.setAttribute("class", "table table-primary");
+table.innerHTML = `<thead>
+                    <tr>
+                    <th>S NO</th>
+                    <th>SName</th>
+                    <th>SAge</th>
+                    <th>SMarks</th>
+                    </tr>
+                </thead>`;
+var tbody = document.createElement("tbody");
+for (var i = 0; i < students.length; i++) {
+    var tr = document.createElement("tr");
+    tr.innerHTML = `<td>${i + 1}</td>
+    <td>${students[i].name}</td>
+    <td>${students[i].age}</td>
+    <td>${students[i].marks}</td>
+    `;
+    tbody.appendChild(tr);
+}
+table.appendChild(tbody);
+secdiv.appendChild(table);
+section.appendChild(secdiv);
+document.body.appendChild(section);
+
+
+
+//nav bar
+
+
+var navItems = [{
+    name: "Home",
+    link: "#"
+},
+{
+    name: "About",
+    link: "#"
+},
+{
+    name: "Products",
+    link: "#"
+},
+{
+    name: "Contact Us",
+    link: "#"
+},
+];
+
+var nav = document.createElement("nav");
+nav.setAttribute("class", "row navbar navbar-expand-lg navbar-light bg-light");
+
+var navdiv = document.createElement("div");
+navdiv.setAttribute("class", " container-fluid");
+
+var navdiv1 = document.createElement("div");
+navdiv1.setAttribute("class", "collapse navbar-collapse");
+
+var ul = document.createElement("ul");
+ul.setAttribute("class", "navbar-nav");
+
+
+
+
+for (var i = 0; i < navItems.length; i++) {
+
+    var li = document.createElement("li");
+    li.setAttribute("class", "col-auto nav-item px-5");
+
+    var a = document.createElement("a");
+    a.setAttribute("class", "nav-link active");
+    a.setAttribute("href", `${navItems[i].link}`);
+    a.innerHTML = navItems[i].name;
+
+    li.appendChild(a);
+    ul.appendChild(li);
+
+}
+
+navdiv1.appendChild(ul);
+navdiv.appendChild(navdiv1);
+nav.appendChild(navdiv);
+
+
+document.body.appendChild(nav);
+
+
+//buttons
+// Array of class names for buttons
+var buttons = [
+    {
+        className: "btn btn-primary",
+        text: "btn-1"
+    },
+    {
+        className: "btn btn-secondary",
+        text: "btn-2"
+    },
+    {
+        className: "btn btn-outline-primary",
+        text: "btn-3"
+    },
+    {
+        className: "btn btn-outline-secondary",
+        text: "btn-4"
+    }
+];
+
+
+var btndiv = document.createElement("div");
+btndiv.setAttribute("class", "row btndiv");
+
+
+for (var i = 0; i < buttons.length; i++) {
+    var btnEle = document.createElement("button");
+    btnEle.setAttribute("class", `col-3 ${buttons[i].className}`);
+    btnEle.innerHTML = buttons[i].text;
+    btndiv.appendChild(btnEle);
+}
+
+document.body.appendChild(btndiv);
+
+
+//dropdowns
+var dropdownItems = [
+    {
+        className: "dropdown-item",
+        link: "#",
+        text: "Action"
+    },
+    {
+        className: "dropdown-item",
+        link: "#",
+        text: "Another action"
+    },
+    {
+        className: "dropdown-item",
+        link: "#",
+        text: "Something else here"
+    }
+]
+
+
+var dddiv = document.createElement("div");
+dddiv.setAttribute("class", "dropdown");
+
+var ddbtn = document.createElement("button");
+ddbtn.setAttribute("class", "btn btn-secondary dropdown-toggle");
+ddbtn.setAttribute("type", "button");
+ddbtn.setAttribute("data-bs-toggle", "dropdown");
+ddbtn.setAttribute("aria-expanded", "false");
+
+ddbtn.innerHTML = "Dropdown button";
+dddiv.appendChild(ddbtn);
+
+
+
+var ddul = document.createElement("ul");
+ddul.setAttribute("class", "dropdown-menu");
+
+for (var i = 0; i < dropdownItems.length; i++) {
+    var ddli = document.createElement("li");
+
+    var a = document.createElement("a");
+    a.setAttribute("class", `${dropdownItems[i].className}`);
+    a.setAttribute("href", `${dropdownItems[i].link}`);
+    a.innerHTML = dropdownItems[i].text;
+
+    ddli.appendChild(a);
+    ddul.appendChild(ddli);
+
+}
+dddiv.appendChild(ddul);
+document.body.appendChild(dddiv);
+
+
+
+//cards
+var cardDiv = document.createElement("div");
+cardDiv.setAttribute("class", "card");
+cardDiv.setAttribute("style", "width: 18rem;");
+
+/* <img src="..." class="card-img-top" alt="..."> */
+var cImg=document.createElement("img");
+cImg.setAttribute("src","./images/room5.jpg");
+cImg.setAttribute("class","card-img-top");
+cImg.setAttribute("alt","...");
+cardDiv.appendChild(cImg);
+
+var cardbdy = document.createElement("div");
+cardbdy.setAttribute("class", "card-body");
+
+var carh5 = document.createElement("h5");
+carh5.setAttribute("class", "card-title");
+carh5.innerText = "Card title";
+cardbdy.appendChild(carh5);
+
+var cardSubtitle = document.createElement("h6");
+cardSubtitle.setAttribute("class", "card-subtitle mb-2 text-body-secondary");
+cardSubtitle.innerText = "Card subtitle";
+cardbdy.appendChild(cardSubtitle);
+
+var cardText = document.createElement("p");
+cardText.setAttribute("class", "card-text");
+cardText.innerText = "Some quick example text to card's content.";
+cardbdy.appendChild(cardText);
+
+var cardLink1 = document.createElement("a");
+cardLink1.setAttribute("href", "#");
+cardLink1.setAttribute("class", "card-link");
+cardLink1.innerText = "Card link";
+cardbdy.appendChild(cardLink1);
+
+var cardLink2 = document.createElement("a");
+cardLink2.setAttribute("href", "#");
+cardLink2.setAttribute("class", "card-link");
+cardLink2.innerText = "Another link";
+cardbdy.appendChild(cardLink2);
+
+// cardbdy.innerHTML=`<h5 class="card-title">Card title</h5>
+//     <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+//     <p class="card-text">Some quick example text to  card's content.</p>
+//     <a href="#" class="card-link">Card link</a>
+//     <a href="#" class="card-link">Another link</a>`;
+
+cardDiv.appendChild(cardbdy);
+document.body.appendChild(cardDiv);
+
+
+//carousel
+var carouselItems = [
+    {
+        cClass: "carousel-item active",
+        cImg: "./images/room5.jpg",
+        subClass: "carousel-caption d-none d-md-block",
+        cH5: "First slide label",
+        cP: "Some representative placeholder content for the first slide 1."
+    },
+    {
+        cClass: "carousel-item",
+        cImg: "./images/room6.jpg",
+        subClass: "carousel-caption d-none d-md-block",
+        cH5: "Second slide label",
+        cP: "Some representative placeholder content for the second slide 2."
+    },
+    {
+        cClass: "carousel-item",
+        cImg: "./images/room7.jpg",
+        subClass: "carousel-caption d-none d-md-block",
+        cH5: "Third slide label",
+        cP: "Some representative placeholder content for the third slide 3."
+    }
+]
+var cExCaptions = document.createElement("div");
+cExCaptions.setAttribute("id", "carouselExampleCaptions");
+cExCaptions.setAttribute("class", "carousel slide");
+
+
+
+var cIndic = document.createElement("div");
+cIndic.setAttribute("class", "carousel-indicators");
+
+var cbtns = [
+    {
+        bTyp: "button",
+        dBtar: "#carouselExampleCaptions",
+        dBSlide: "0",
+        aLabel: "Slide 1"
+    },
+    {
+        bTyp: "button",
+        dBtar: "#carouselExampleCaptions",
+        dBSlide: "1",
+        aLabel: "Slide 2"
+    },
+    {
+        bTyp: "button",
+        dBtar: "#carouselExampleCaptions",
+        dBSlide: "2",
+        aLabel: "Slide 3"
+    }
+]
+
+
+
+for (var k = 0; k < cbtns.length; k++) {
+    var cBtn = document.createElement("button");
+    cBtn.setAttribute("type", `${cbtns[k].bTyp}`);
+    cBtn.setAttribute("data-bs-target", `${cbtns[k].dBtar}`);
+    cBtn.setAttribute("data-bs-slide-to", `${cbtns[k].dBSlide}`);
+    cBtn.setAttribute("aria-label", `${cbtns[k].aLabel}`);
+
+
+    if (k === 0) {
+        cBtn.setAttribute("class", "active");
+        cBtn.setAttribute("aria-current", "true");
+    }
+    cIndic.appendChild(cBtn);
+}
+
+
+cExCaptions.appendChild(cIndic);
+
+var cInner = document.createElement("div");
+cInner.setAttribute("class", "carousel-inner");
+cExCaptions.appendChild(cInner);
+for (var i = 0; i < carouselItems.length; i++) {
+    var ciDiv = document.createElement("div");
+    ciDiv.setAttribute("class", `${carouselItems[i].cClass}`);
+    cInner.appendChild(ciDiv);
+
+    var cImg = document.createElement("img");
+    cImg.setAttribute("src", `${carouselItems[i].cImg}`);
+    cImg.setAttribute("class", "d-block w-100");
+    cImg.setAttribute("alt", "...");
+
+    ciDiv.appendChild(cImg);
+
+    var subInDiv = document.createElement("div");
+    subInDiv.setAttribute("class", `${carouselItems[i].subClass}`);
+    ciDiv.appendChild(subInDiv);
+
+    var cH5 = document.createElement("h5");
+    cH5.innerHTML = `${carouselItems[i].cH5}`;
+    subInDiv.appendChild(cH5);
+
+    var cP = document.createElement("p");
+    cP.innerHTML = `${carouselItems[i].cP}`;
+    subInDiv.appendChild(cP);
+}
+
+var undBtns = [
+    {
+        undClass: "carousel-control-prev",
+        uType: "button",
+        uDbt: "#carouselExampleCaptions", //changed
+        uDbs: "prev"
+    },
+    {
+        undClass: "carousel-control-next",
+        uType: "button",
+        uDbt: "#carouselExampleCaptions",
+        // uDbt: "#carouselExampleIndicators",
+        uDbs: "next"
+    }
+]
+
+for (var u = 0; u < undBtns.length; u++) {
+    var uBtn = document.createElement("button");
+
+    uBtn.setAttribute("class", `${undBtns[u].undClass}`);
+    uBtn.setAttribute("type", `${undBtns[u].uType}`);
+    uBtn.setAttribute("data-bs-target", `${undBtns[u].uDbt}`);
+    uBtn.setAttribute("data-bs-slide", `${undBtns[u].uDbs}`);
+
+    if (u === 0) {
+        var span1 = document.createElement("span");
+        span1.setAttribute("class", "carousel-control-prev-icon");
+        span1.setAttribute("aria-hidden","true");
+        uBtn.appendChild(span1);
+
+        // <span class="visually-hidden">Previous</span>
+        var span2 = document.createElement("span");
+        span2.setAttribute("class","visually-hidden");
+        span2.innerHTML="Previous";
+        uBtn.appendChild(span2);
+
+    } else if (u === 1) {
+
+        var span3= document.createElement("span");
+        span3.setAttribute("class", "carousel-control-next-icon");
+        span3.setAttribute("aria-hidden","true");
+        uBtn.appendChild(span3);
+
+        // <span class="visually-hidden">next</span>
+        var span4 = document.createElement("span");
+        span4.setAttribute("class","visually-hidden");
+        span4.innerHTML="Next";
+        uBtn.appendChild(span4);
+
+    }
+    cExCaptions.appendChild(uBtn);
+}
+document.body.appendChild(cExCaptions);
+
+
+
+//Accordion
+var acorItems=[
+    {
+        subDivItem:"accordion-item",
+        aHead:"accordion-header",
+        aBtnclass:"accordion-button collapsed",
+        abtnType:"button",
+        aDbs:"collapse" ,
+        btntxt:"Accordion Item #1",
+        aDbt:"#flush-collapseOne",
+        aAriaEx:"false",
+        aAriaCont:"flush-collapseOne",
+        subDiv1id:"flush-collapseOne",
+        subDiv1Class:"accordion-collapse collapse",
+        subDivParent:"#accordionFlushExample",
+        subDiv11Class:"accordion-body",
+        aBdyText:"Placeholder content for this accordion1"
+    },
+    {
+        subDivItem:"accordion-item",
+        aHead:"accordion-header",
+        aBtnclass:"accordion-button collapsed",
+        abtnType:"button",
+        aDbs:"collapse" ,
+        btntxt:"Accordion Item #2",
+        aDbt:"#flush-collapseTwo",
+        aAriaEx:"false",
+        aAriaCont:"flush-collapseTwo",
+        subDiv1id:"flush-collapseTwo",
+        subDiv1Class:"accordion-collapse collapse",
+        subDivParent:"#accordionFlushExample",
+        subDiv11Class:"accordion-body",
+        aBdyText:"Placeholder content for this accordion2"
+    },
+    {
+        subDivItem:"accordion-item",
+        aHead:"accordion-header",
+        aBtnclass:"accordion-button collapsed",
+        abtnType:"button",
+        aDbs:"collapse" ,
+        btntxt:"Accordion Item #3",
+        aDbt:"#flush-collapseThree",
+        aAriaEx:"false",
+        aAriaCont:"flush-collapseThree",
+        subDiv1id:"flush-collapseThree",
+        subDiv1Class:"accordion-collapse collapse",
+        subDivParent:"#accordionFlushExample",
+        subDiv11Class:"accordion-body",
+        aBdyText:"Placeholder content for this accordion3"
+    }
+];
+
+var accorDiv=document.createElement("div");
+accorDiv.setAttribute("class","accordion accordion-flush");
+accorDiv.setAttribute( "id","accordionFlushExample");
+
+for(var i=0;i<acorItems.length;i++){
+    var subDivItem=document.createElement("div");
+    subDivItem.setAttribute("class",`${acorItems[i].subDivItem}`);
+    accorDiv.appendChild(subDivItem);
+
+    var aH2=document.createElement("h2");
+    aH2.setAttribute("class",`${acorItems[i].aHead}`);
+    subDivItem.appendChild(aH2);
+
+    var aBtn=document.createElement("button");
+    aBtn.setAttribute("class",`${acorItems[i].aBtnclass}`);
+    aBtn.setAttribute("type",`${acorItems[i].abtnType}`);
+    aBtn.setAttribute("data-bs-toggle",`${acorItems[i].aDbs}`);
+    aBtn.setAttribute("data-bs-target",`${acorItems[i].aDbt}`);
+    aBtn.setAttribute("aria-expanded",`${acorItems[i].aAriaEx}`);
+    aBtn.setAttribute("aria-controls",`${acorItems[i].aAriaCont}`);
+    aBtn.innerHTML=`${acorItems[i].btntxt}`;
+    aH2.appendChild(aBtn);
+
+    var aSubDiv=document.createElement("div");
+    aSubDiv.setAttribute("id",`${acorItems[i].subDiv1id}`);
+    aSubDiv.setAttribute("class",`${acorItems[i].subDiv1Class}`);
+    aSubDiv.setAttribute("data-bs-parent",`${acorItems[i].subDivParent}`);
+
+    var aSubDiv1=document.createElement("div");
+    aSubDiv1.setAttribute("class",`${acorItems[i].subDiv11Class}`);
+    aSubDiv1.innerHTML=`${acorItems[i].aBdyText}`;
+    aSubDiv.appendChild(aSubDiv1);
+
+    subDivItem.appendChild(aSubDiv);
+
+}
+
+document.body.appendChild(accorDiv);
+

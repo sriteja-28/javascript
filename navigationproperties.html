@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>navigation properties
+    <script>
+        console.log("appName:", navigator.appName);  // Browser's name (e.g., "Netscape")
+        console.log("ppVersion:", navigator.appVersion);// Browser's version (e.g., "5.0 (Windows)")
+        console.log("userAgent: ", navigator.userAgent);  // Browser's user agent string
+        console.log("platform:", navigator.platform);    // Operating system platform (e.g., "Win32")
+        console.log("language: ", navigator.language,);   // Preferred language (e.g., "en-US")
+        console.log("onLine: ", navigator.onLine,);   // Whether the browser is online or offline
+        console.log("geolocation: ", navigator.geolocation ? 'Supported' : 'Not Supported',);// Geolocation support
+        console.log("cookiesEnabled: ", navigator.cookieEnabled);   
+    </script>
+
+
+<!-- navigator.appName: Returns the name of the browser (e.g., "Netscape").
+navigator.appVersion: Returns the version of the browser.
+navigator.userAgent: Returns the user agent string which includes details about the browser and operating system.
+navigator.platform: Returns the platform (operating system) the browser is running on (e.g., "Win32").
+navigator.language: Returns the preferred language of the browser (e.g., "en-US").
+navigator.onLine: Returns a boolean indicating whether the browser is online.
+navigator.geolocation: Checks if the browser supports geolocation.
+navigator.cookieEnabled: Returns a boolean indicating whether cookies are enabled in the browser. -->
+</body>
+
+</html>

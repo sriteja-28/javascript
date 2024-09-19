@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date example</title>
+</head>
+
+<body>
+    <!-- <script>
+        let date = new Date();
+        let options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            timeZone: 'UTC'
+        };
+        document.write(date.toLocaleDateString('en-US', options) + "<br>");;
+        document.write(date.toLocaleDateString('hi-IN', options) + "<br>");
+        document.write(date.toLocaleDateString('es-ES', options) + "<br>");
+        document.write(date.toLocaleDateString('fr-FR', options) + "<br>");
+        document.write(date.toLocaleDateString('de-DE', options) + "<br>");
+    </script> -->
+
+<!-- 
+en-US (American English): Monday, August 19, 2024
+hi-IN (Hindi - India): सोमवार, 19 अगस्त 2024
+es-ES (Spanish - Spain): lunes, 19 de agosto de 2024
+fr-FR (French - France): lundi 19 août 2024
+de-DE (German - Germany): Montag, 19. August 2024 -->
+
+
+<!-- JavaScript Set Date Methods -->
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <!-- Script to use setDate method -->
+    <script>
+        let d1 = new Date();
+        d1.setDate(5);//Day number change as 5th
+        document.getElementById("p1").innerHTML = d1;
+
+        var d2 = new Date();
+        d2.setFullYear(2020);//year value changed as 2020
+        document.getElementById("p2").innerHTML = d2;
+        
+        var d3 = new Date();
+        d3.setMonth(5);//month value changed as Jun
+        document.getElementById("p3").innerHTML = d3;
+    </script>
+
+</body>
+
+</html>

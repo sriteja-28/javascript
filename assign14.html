@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            flex-direction: column;
+            /* overflow-x: hidden; */
+            background-color: lightblue;
+            /* width: 900px; */
+            
+        }
+
+        .error {
+            color: red;
+        }
+
+        /* table */
+        #outputTable {
+            table-layout: auto;
+            width: 100%;
+        }
+
+        #outputTable th,
+        #outputTable td {
+            text-align: left;
+            padding: 8px;
+            width: auto;
+            height: auto;
+        }
+
+        #outputTable th {
+            background-color: #f2f2f2;
+        }
+
+        #outputTable td {
+            border: 1px solid #ddd;
+        }
+    </style>
+    <script src="assign14.js" defer></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class='text-center' style='font-family:Amasis; color: black;'><b>Student Registration Form-14</b></h1>
+        <form id="studentForm" class="w-50 m-5">
+            <div class="form-group">
+                <label for="studentName">Student Name:</label>
+                <input type="text" class="form-control" id="studentName" placeholder="Enter Student Name">
+                <span id="nameError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob">
+                <span id="dobError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+                <span id="genderError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Select Course:</label>
+                <select class="form-control" id="course">
+                    <option value="">--select course--</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="M.Tech">M.Tech</option>
+                    <option value="B.Sc">B.Sc</option>
+                    <option value="M.Sc">M.Sc</option>
+                </select>
+                <span id="courseError" class="error"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea class="form-control" id="address" rows="3" placeholder="Enter Address"></textarea>
+                <span id="addressError" class="error"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="terms">
+                <label class="form-check-label" for="terms">I accept the terms and conditions</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+
+        <table class="table table-bordered mt-5" id="outputTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Course</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Rows will be added here -->
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es6_operators</title>
+</head>
+
+<body>
+    <script>
+        //spread operator for arrays
+        console.log("spread operator for arrays");
+        let arr1 = [1, 2, 3, 4, 5, 6, 8, 3];
+        let arr2 = [8, 9, 1, 2, 7];
+        let arr = [...arr1, ...arr2];
+        console.log(arr);
+
+        //spread operator for objects
+        console.log("spread operator for objects");
+        let obj1 = { a: 1, b: 2, c: 3 };
+        let obj2 = { d: 4, e: 5 };
+        let obj = { ...obj1, ...obj2 };
+        console.log(obj);
+
+        //sum of arguments
+        console.log("sum of arguments");
+        function sum() {
+            let total = 0;
+            for (let a of arguments) {
+                total += a;
+            }
+            return total;
+        }
+        let arS = [2, 3, 4, 5, 6];
+        console.log(sum(...arS));
+        console.log(sum(2, 3, 4, 5));
+
+
+        function sum(...args) { //restoperator
+            let total = 0;
+            console.log(args);
+            for (let a of args) {
+                total += a;
+            }
+            return total;
+        }
+        let arR = [2, 3, 4, 5, 7, 8, 1];
+        console.log(sum(...arR)); //spread operator
+        console.log(sum(2, 3, 4, 5));
+
+        //object literal syntax
+        console.log("object literal syntax");
+        function createProperty(name, status) {
+            return {
+                name, status
+            }
+        }
+        console.log(createProperty("teja", "completed"));
+        console.log(createProperty("sri", " not completed"));
+
+        //computed property name
+        console.log("computed property name");
+        let name1 = 'employee';
+        let person = {
+            [name1]: "teja",
+            'address': "hyd"
+        };
+        console.log(person);
+
+        let prefix = 'Machine';
+        let mcn = {
+            [prefix + 'Name']: "server",
+            [`${prefix} hours`]: 1000
+        };
+        console.log(mcn);
+
+        //destructuring
+        console.log("destructuring fo arrays");
+        let arrD = [2, 3, 4, 5];
+        // let [a,b,c]=arrD;
+        // console.log(a,b,c);
+
+        // let [a, b, ...c] = arrD;
+        // console.log(a, b, c);
+
+        console.log("destructuring for objects");
+        let objD = { a: 1, b: 2, c: 4 };
+        let {a,b,c}=objD;
+        console.log(a, b, c);
+
+        // let { a: x, b: y, c: z } = objD;
+        // console.log(x, y, z);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Independence Day</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flowers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            display: none;
+            /* Initially hidden */
+        }
+
+        #flagImage,
+        #hostedFlag {
+            max-width: 100%;
+        }
+
+        #flagImage {
+            width: 400px;
+            height: auto;
+        }
+
+        #hostedFlag {
+            border-radius: 50%;
+            object-fit: cover;
+            width: 500px;
+            height: 300px;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Initial Button -->
+        <h1 class='text-center' style='font-family:Amasis; color: lightblue;'><b>Happy Independence Day</b></h1>
+
+        <button id="initialButton" type="button" onclick="showFlag()">surpise</button>
+
+        <!-- Elements to show after clicking the initial button -->
+        <div id="afterClick" class="hidden">
+            <img id="flagImage" src="./images/withouthosted.jpg" alt="Flag of India"><br>
+            <button id="hostButton" type="button" onclick="hostFlag()">Host Flag</button>
+        </div>
+
+        <!-- Elements to show after hosting the flag -->
+        <div id="hostedContent" class="hidden">
+            <img src="./images/flowers.jpg" alt="Flowers" class="flowers">
+            <img id="hostedFlag" src="./images/hostedflag.webp" alt="Flag of India">
+        </div>
+    </div>
+
+    <script>
+        function showFlag() {
+            document.getElementById('initialButton').classList.add('hidden');
+            document.getElementById('afterClick').classList.remove('hidden');
+        }
+
+        function hostFlag() {
+            document.getElementById('afterClick').classList.add('hidden');
+            document.getElementById('hostedContent').classList.remove('hidden');
+            document.querySelector('.flowers').style.display = 'block'; // Show the flowers background
+        }
+    </script>
+</body>
+
+</html>

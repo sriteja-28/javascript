@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>time1</title>
+    <style>
+        div{
+            margin-top:10px;
+        }
+    </style>
+    <script defer>
+        var intervalId;
+        var date;
+
+        function simple() {
+            date = new Date();
+            //console.log("Date:",date);
+            var tim = document.getElementById("tim");
+            tim.innerHTML = `${date}`;
+
+
+            //when click only should start means
+            // intervalId = setInterval(function() {
+            //     date = new Date();
+            //     tim.innerHTML = `${date}`;
+            // }, 1000);
+        }
+        intervalId = setInterval(simple, 1000);
+
+        function clearAlert() {
+            clearInterval(intervalId);
+        }	
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>Timer -21 -1</h1>
+        <button onclick="simple()">Click</button>
+        <button onclick="clearAlert()">stop</button>
+
+        <div id="tim"></div>
+    </center>
+</body>
+
+</html>

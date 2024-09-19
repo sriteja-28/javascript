@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Methods</title>
+</head>
+<body>
+    <button onclick="goBack()">Go Back</button>
+    <button onclick="goForward()">Go Forward</button>
+
+    <button onclick="goBackTwoPages()">Go Back 2 Pages</button>
+    <button onclick="reloadPage()">Reload Page</button>
+    <button onclick="goForwardOnePage()">Go Forward 1 Page</button>
+
+    <script>
+        function goBack() {
+            history.back(); // Navigates to the previous page in the history
+            console.log("go back called");
+        }
+        function goForward() {
+            history.forward(); // Navigates to the next page in the history
+            console.log("forward called");
+        }
+
+
+        function goBackTwoPages() {
+            history.go(-2); // Moves back 2 pages in the history
+            console.log("back to 2 pages");
+        }
+
+        function reloadPage() {
+            history.go(0); // Reloads the current page
+            console.log(" curennt page refreshed");
+        }
+
+        function goForwardOnePage() {
+            history.go(1); // Moves forward 1 page in the history
+            console.log("forward one page");
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!-- 
+The history object in JavaScript allows you to manipulate the browser session history, including navigating between previously visited pages. Here are examples of using the back, forward, and go methods:
+
+1. history.back()
+This method navigates to the previous page in the session history, equivalent to clicking the browser's back button.
+
+
+2. history.forward()
+This method navigates to the next page in the session history, equivalent to clicking the browser's forward button.
+
+
+3. history.go()
+This method navigates to a specific page in the session history. It takes a single integer argument:
+
+A positive number moves forward in the history by that number of pages.
+A negative number moves backward by that number of pages.
+0 reloads the current page. 
+
+history.back(): Moves the user to the previous page in the session history.
+history.forward(): Moves the user to the next page in the session history.
+history.go(): Navigates to a specific page in the session history based on the provided integer argument.  -->

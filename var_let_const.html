@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="testing_processing.js" defer></script> -->
+</head>
+
+<body>
+
+    <script>
+        //var
+        // function example() {
+        //     console.log(x); // undefined due to hoisting
+        //     var x = 10;
+        //     console.log(x); // 10
+        // }
+
+
+
+        //let
+        // function example() {
+        //     console.log(x); // ReferenceError
+        //     let x = 10;
+        //     console.log(x); // 10
+        // }
+        // example();
+
+        //const
+        function example() {
+            const x = 10;
+            console.log(x); // 10
+            x = 20; // TypeError: Assignment to constant variable.
+        }
+        example();
+        const arr = [1, 2, 3];
+        arr.push(4); // Allowed
+        arr = [5, 6, 7]; // TypeError: Assignment to constant variable.
+
+    </script>
+
+<!-- 
+In JavaScript, let, var, and const are used to declare variables, 
+but they differ in scope, hoisting behavior, and mutability. Here’s a breakdown of each:
+
+1. var
+Scope: var is function-scoped, meaning it is only accessible within the 
+function where it's declared. If declared outside of a function, it's globally scoped.
+Hoisting: Variables declared with var are hoisted to the top of their scope. 
+This means you can use the variable before its declaration, though it will be undefined
+ until the line where it's actually assigned.
+Re-declaration: You can re-declare the same variable multiple times within the same 
+scope without causing an error.
+Example:
+
+javascript
+Copy code
+function example() {
+  console.log(x); // undefined due to hoisting
+  var x = 10;
+  console.log(x); // 10
+}
+2. let
+Scope: let is block-scoped, meaning it is only accessible within the block {} where it's declared. 
+This includes loops, if statements, and functions.
+Hoisting: Variables declared with let are hoisted, but they are not initialized. 
+They are in a "temporal dead zone" from the start of the block until the declaration is encountered,
+ so using the variable before declaration causes a ReferenceError.
+Re-declaration: You cannot re-declare the same variable within the same block scope.
+Example:
+
+javascript
+Copy code
+function example() {
+  console.log(x); // ReferenceError
+  let x = 10;
+  console.log(x); // 10
+}
+3. const
+Scope: Like let, const is also block-scoped.
+Hoisting: const is hoisted, but like let, it is also in the "temporal dead zone" until its 
+declaration is encountered.
+Re-declaration: You cannot re-declare a const variable within the same scope.
+Mutability: Variables declared with const cannot be reassigned after they are initialized. 
+However, if the const variable is an object or array, the contents (properties or elements) can still be modified.
+Example:
+
+javascript
+Copy code
+function example() {
+  const x = 10;
+  console.log(x); // 10
+  x = 20; // TypeError: Assignment to constant variable.
+}
+
+const arr = [1, 2, 3];
+arr.push(4); // Allowed
+arr = [5, 6, 7]; // TypeError: Assignment to constant variable.
+
+When to Use:
+var: Generally, it's better to avoid using var in modern JavaScript because it can lead to
+ unexpected behavior due to its function-scoped nature and hoisting.
+let: Use let when you need a variable that can be reassigned and is block-scoped. 
+It's the most common choice for general-purpose variables.
+const: Use const for variables that should not be reassigned, especially for constants or objects
+ that should not be reassigned, though their properties can still be changed.
+In summary, prefer let and const for most of your variable declarations, with const being
+ the default choice unless you know you need to reassign the variable. -->
+
+</body>
+
+</html>

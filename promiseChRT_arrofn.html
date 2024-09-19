@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCRTAFn</title>
+    <script defer>
+            const getUser = (userId) => {
+                return new Promise((resolve, reject) => {
+                    console.log("Getting Users");
+                    setTimeout(() => {
+                        resolve({
+                            userId: userId,
+                            userName: "Admin"
+                        });
+                    }, 2000);
+                });
+            }
+            const getService = (user) => {
+                return new Promise((resolve, reject) => {
+                    console.log(`Getting service of ${user.userName}`);
+                    setTimeout(() => {
+                        resolve(["Email", "Fax", "print"]);
+                    }, 2000);
+                });
+            }
+
+            const getServiceCost = (services) => {
+                return new Promise((resolve, reject) => {
+                    console.log(`Calculating the service cost of ${services}`);
+                    setTimeout(() => {
+                        resolve(services.length * 20);
+                    }, 2000);
+                });
+            }
+
+            //getUser(100).then(getService).then(getServiceCost).then(console.log);
+
+            // async
+            showServiceCost = async () => {
+                try {
+                    let user = await getUser(100);
+                    let services = await getService(user);
+                    let cost = await getServiceCost(services);
+                    console.log(`the service cost:${cost}`)
+                }
+                catch (error) {
+                    console.log(error);
+                }
+            }
+            //showServiceCost();
+
+        const promise_All = () => {
+            //console.log("helo");
+            const promise1 = Promise.resolve(3);
+
+            //to get error
+            //const promise2 = new Promise((resolve, reject) => reject('Error occurred'));
+
+            const promise2 = 10;  // Non-promise values are wrapped in a resolved promise
+            const promise3 = new Promise((resolve, reject) => {
+                setTimeout(resolve, 100, 'foo');
+            });
+
+            Promise.all([promise1, promise2, promise3]).then((values) => {
+                console.log(values); // Expected output: [3, 10, 'foo']
+            }).catch((error) => {
+                console.error('Caught an error:', error);  // This runs if any promise rejects
+            });
+
+        }
+
+        const promise_Race = () => {
+            const promise1 = new Promise((resolve) => setTimeout(resolve, 500, 'Promise 1 resolved'));
+            const promise2 = new Promise((resolve, reject) => setTimeout(reject, 300, 'Promise 2 rejected'));
+
+            Promise.race([promise1, promise2])
+                .then((value) => {
+                    console.log('Race resolved with:', value);  // Output: 'Promise 2 rejected'
+                })
+                .catch((error) => {
+                    console.error('Race rejected with:', error);
+                });
+
+        }
+
+        const promise_Any = () => {
+            const promise1 = new Promise((resolve, reject) => setTimeout(reject, 500, 'Promise 1 rejected'));
+            const promise2 = new Promise((resolve) => setTimeout(resolve, 300, 'Promise 2 resolved'));
+            const promise3 = new Promise((resolve, reject) => setTimeout(reject, 400, 'Promise 3 rejected'));
+
+            Promise.any([promise1, promise2, promise3])
+                .then((value) => {
+                    console.log('Any resolved with:', value);  // Output: 'Promise 2 resolved'
+                })
+                .catch((error) => {
+                    console.error('Any rejected with:', error);  // Output if all promises reject
+                });
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Promise chaining Real time ex (Arrow fn)</h1>
+    <input type="submit" value="PromiseChainingRTAFn" onclick="showServiceCost()">
+    <input type="submit" value="Promise_All" onclick="promise_All()">
+    <input type="submit" value="Promise_Race" onclick="promise_Race()">
+    <input type="submit" value="Promise_Any" onclick="promise_Any()">
+</body>
+
+</html>
+
+
+<!-- 
+clear comparison of the key differences between Promise.all(), Promise.race(), and Promise.any():
+
+1. Promise.all()
+Behavior: Resolves when all promises in the iterable resolve. If any promise rejects, the entire Promise.all() rejects immediately.
+Use Case: When you need all asynchronous operations to complete successfully. If any one of them fails, you want to handle that error.
+Outcome:
+If all promises resolve: Returns an array of resolved values.
+If any promise rejects: Returns the rejection reason of the first failed promise.
+Example:
+javascript
+Copy code
+Promise.all([promise1, promise2, promise3])
+  .then((values) => console.log(values))  // Resolves with an array of results.
+  .catch((error) => console.error(error));  // Rejects if any promise fails.
+
+2. Promise.race()
+Behavior: Resolves or rejects as soon as the first promise in the iterable settles (either resolves or rejects). The result of the first settled promise (whether resolved or rejected) is returned.
+Use Case: When you only care about the first promise to settle (whether success or failure), such as for timeouts or race conditions.
+Outcome:
+Returns the value of the first settled promise (either resolved or rejected).
+Example:
+javascript
+Copy code
+Promise.race([promise1, promise2, promise3])
+  .then((value) => console.log(value))  // Resolves or rejects with the first settled value.
+  .catch((error) => console.error(error));  // Rejects if the first promise to settle rejects.
+
+3. Promise.any()
+Behavior: Resolves when any one of the promises resolves. It ignores rejections unless all promises reject. If all promises reject, it throws an AggregateError containing all rejection reasons.
+Use Case: When you need at least one promise to succeed and want to ignore failures until all promises fail.
+Outcome:
+Resolves with the first fulfilled promise.
+Rejects with an AggregateError if all promises fail.
+Example:
+javascript
+Copy code
+Promise.any([promise1, promise2, promise3])
+  .then((value) => console.log(value))  // Resolves with the first fulfilled value.
+  .catch((error) => console.error(error.errors));  // Rejects only if all promises reject.
+
+Summary of Differences:
+Feature	Promise.all()	Promise.race()	Promise.any()
+Resolves when	All promises resolve	The first promise settles (resolve/reject)	The first promise resolves
+Rejects when	Any one promise rejects	The first promise rejects	Only when all promises reject
+Result	Array of resolved values	Result of the first settled promise	The first resolved value
+Failure handling	Stops when any promise rejects	Stops at the first settled (resolved/rejected)	Ignores rejections until all reject
+Use case	Wait for everything to succeed or fail	React to whichever finishes first	Succeed as soon as possible, even if others fail. -->

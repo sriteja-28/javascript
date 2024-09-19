@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Sort</title>
+</head>
+
+<body>
+    <h1>Sorting</h1>
+
+    <p>Original Array: <span id="originalArray"></span></p>
+    <p>Ascending Order: <span id="ascendingOrder"></span></p>
+    <p>Descending Order: <span id="descendingOrder"></span></p>
+
+    <script>
+        function customSort(arr) {
+            var ascendingArray = [];
+            var descendingArray = [];
+
+            // Sort in ascending order by repeatedly finding the minimum value
+            while (arr.length > 0) {
+                var minIndex = 0;
+                for (var i = 1; i < arr.length; i++) {
+                    if (arr[i] < arr[minIndex]) {
+                        minIndex = i;
+                    }
+                }
+                ascendingArray.push(arr[minIndex]);
+                 // Remove the minimum element from the original array
+                arr.splice(minIndex, 1); 
+            }
+
+            // Create descending order by reversing the ascending array
+            descendingArray = [...ascendingArray].reverse();
+
+            return { ascendingArray, descendingArray };
+        }
+
+        var arr = [64, 34, 25, 12, 22, 11, 90];
+         // Use slice to pass a copy of the array
+
+        var sortedArrays = customSort(arr.slice());
+
+        // Display the original and sorted arrays in the HTML
+        document.getElementById('originalArray').textContent = arr.slice();
+        document.getElementById('ascendingOrder').textContent = sortedArrays.ascendingArray;
+        document.getElementById('descendingOrder').textContent = sortedArrays.descendingArray;
+    </script>
+</body>
+
+</html>

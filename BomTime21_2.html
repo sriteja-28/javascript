@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracker -2</title>
+    <style>
+        div{
+            margin-top:10px;
+        }
+    </style>
+    <script defer>
+        var intervalId;
+        var startTime;
+        var endTime;
+
+        function simple() {
+            var date = new Date();
+            document.getElementById("tim").innerHTML = `Timer: ${date}`;
+        }
+        function startTimer() {
+
+            startTime = new Date();
+            intervalId = setInterval(simple, 1000);
+
+            document.getElementById("start").innerHTML = `Start Time:${startTime}`;
+
+        }
+        function stopTimer() {
+            clearInterval(intervalId);
+            endTime = new Date();  
+
+            document.getElementById("tim").innerHTML = `End Time: ${endTime}`;
+            calculateDifference();
+        }
+
+        function calculateDifference() {
+            var timeDiff = endTime - startTime; 
+            var seconds = Math.floor((timeDiff / 1000) % 60);
+            var minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+            var hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+
+
+
+            document.getElementById("diff").innerHTML = `Time difference: ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+            //alert(`Time difference: ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>Timer -21 -2</h1>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="stopTimer()">Stop</button>
+        <div id="start"></div>
+        <div id="tim"></div>
+        <div id="diff"></div>
+    </center>
+</body>
+
+</html>

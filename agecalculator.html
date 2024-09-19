@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+</head>
+
+<body>
+
+    <label for="dob">Enter DOB (including time and sec):</label>
+    <input type="datetime-local" id="dob">
+    <label for="seconds">Seconds:</label>
+    <input type="number" id="seconds" min="0" max="59" placeholder="0">
+    <input type="button" value="Submit" onclick="calculateAge()">
+
+    <div id="result"></div>
+
+    <script>
+        function calculateAge() {
+            // Get the input values (date of birth and seconds)
+            var dob = document.getElementById("dob").value;
+            var seconds = parseInt(document.getElementById("seconds").value) || 0;
+
+            if (!dob) {
+                document.getElementById("result").innerHTML = "Please enter your date of birth.";
+                return;
+            }
+
+            // Calculate the age
+            var today = new Date();
+            var birthDate = new Date(dob);
+            birthDate.setSeconds(seconds); // Set the seconds
+
+            var ageInMilliseconds = today - birthDate;
+
+            if (ageInMilliseconds < 0) {
+                document.getElementById("result").innerHTML = "Please enter a valid date of birth.";
+                return;
+            }
+
+            // Convert age from milliseconds to years, months, days, hours, minutes, and seconds
+            var ageInYears = Math.floor(ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000));
+            var ageInMonths = Math.floor((ageInMilliseconds % (365.25 * 24 * 60 * 60 * 1000)) / (30.44 * 24 * 60 * 60 * 1000));
+            var ageInDays = Math.floor((ageInMilliseconds % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000));
+            var ageInHours = Math.floor((ageInMilliseconds % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+            var ageInMinutes = Math.floor((ageInMilliseconds % (60 * 60 * 1000)) / (60 * 1000));
+            var ageInSeconds = Math.floor((ageInMilliseconds % (60 * 1000)) / 1000);
+
+            // Display the result
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = `Your age is ${ageInYears} years, ${ageInMonths} months, ${ageInDays} days, ${ageInHours} hours, ${ageInMinutes} minutes, and ${ageInSeconds} seconds.`;
+        }
+    </script>
+</body>
+
+</html>

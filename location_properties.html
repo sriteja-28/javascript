@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location properties</title>
+</head>
+<body>
+    <script> 
+        console.log(screen.width,screen.height,screen.availWidth,screen.availHeight);
+
+        console.log("href",location.href);
+        console.log("protocol",location.protocol);
+        console.log("host",location.host);
+        console.log("port",location.port);
+        console.log("hostname",location.hostname);
+        console.log("origin",location.origin);
+        console.log("pathname",location.pathname);
+        console.log("search",location.search);
+        console.log("hash",location.hash);
+        console.log("username",location.username);
+        console.log("password",location.password);
+    </script>
+<!-- 
+screen.height gives you the total height of the screen, while 
+screen.availHeight gives you the height available for web content,
+taking into account any system UI elements that might be present.
+
+location.href: Full URL of the current page.
+location.protocol: Protocol used (e.g., http: or https:).
+location.host: Hostname and port (e.g., example.com:80).
+location.port: Port number of the URL (empty if default).
+location.hostname: Hostname of the URL (e.g., example.com).
+location.origin: Origin of the URL (e.g., http://example.com).
+location.pathname: Path of the URL (e.g., /page).
+location.search: Query string part of the URL (e.g., ?name=John&age=30).
+location.hash: Fragment identifier of the URL (e.g., #section2).
+location.username: Username for basic authentication (usually undefined).
+location.password: Password for basic authentication (usually undefined). -->
+
+
+
+</body>
+</html>

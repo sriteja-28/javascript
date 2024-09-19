@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location methods</title>
+</head>
+
+<body>
+    <button onclick="reloadPage()">Reload</button>
+    <button onclick="redirectToNewPage()">Replace</button>
+    <button onclick="navigateToNewPage()">Assign</button>
+    <script>
+        function reloadPage() {
+            // Reload the page
+            location.reload(); // Reloads the page from the cache
+            // location.reload(true); // Reloads the page from the server
+            console.log("reloaded");
+        }
+
+        function redirectToNewPage() {
+            // Replace the current page with a new URL
+            location.replace("https://www.youtube.com/"); // Redirects to url
+        }
+
+        function navigateToNewPage() {
+            // Load a new document and add the URL to the history
+            location.assign("https://m.facebook.com/"); // Redirects to url
+        }
+    </script>
+
+    <!-- 1. location.reload()
+    This method reloads the current page.
+    You can optionally pass a boolean parameter to force a reload from the server instead of using the cache.
+
+
+    2. location.replace()
+    This method replaces the current URL in the history stack with a new URL.
+    It does not create a new entry in the history, so pressing the back button will not return to the replaced URL.
+    
+    3.location.assign() method. This method loads a new document and adds the new URL to the browser's history,
+     meaning that the user can navigate back to the previous page using the back button.
+
+    location.reload(): Reloads the current page, with an optional parameter to force a reload from the server.
+
+    location.replace(): Replaces the current page in the history with a new URL,
+    preventing navigation back to the original page.
+
+    location.assign(): Navigates to a new URL and adds it to the browser's history,
+     so users can use the back button to return to the previous page. -->
+</body>
+
+</html>
